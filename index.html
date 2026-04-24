@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="sk">
 <head>
   <meta charset="UTF-8" />
@@ -22,133 +21,130 @@
     }
     body { font-family: "DM Sans", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: var(--nav-h); }
 
-```
-/* TOPBAR */
-.topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 1.25rem; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; }
-.topbar-left { display: flex; align-items: center; gap: 10px; }
-.topbar-icon { width: 30px; height: 30px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
-.topbar-title { font-size: 17px; font-weight: 600; }
-.home-btn { width: 32px; height: 32px; border-radius: 8px; border: .5px solid var(--border-strong); background: var(--surface2); color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; text-decoration: none; flex-shrink: 0; }
-.home-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-.status-pill { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); background: var(--surface2); border-radius: 20px; padding: 4px 10px; }
-.dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; transition: background 0.3s; }
-.dot.on { background: #3da45a; }
+    /* TOPBAR */
+    .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 1.25rem; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 20; }
+    .topbar-left { display: flex; align-items: center; gap: 10px; }
+    .topbar-icon { width: 30px; height: 30px; background: var(--accent); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    .topbar-title { font-size: 17px; font-weight: 600; }
+    .home-btn { width: 32px; height: 32px; border-radius: 8px; border: .5px solid var(--border-strong); background: var(--surface2); color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .15s; text-decoration: none; flex-shrink: 0; }
+    .home-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .status-pill { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--muted); background: var(--surface2); border-radius: 20px; padding: 4px 10px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #ccc; transition: background 0.3s; }
+    .dot.on { background: #3da45a; }
 
-/* NAV */
-.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: var(--nav-h); background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; z-index: 30; }
-.nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; padding: 6px 0; flex: 1; }
-.nav-item.active .nav-icon { color: var(--accent); }
-.nav-item.active .nav-label { color: var(--accent); font-weight: 600; }
-.nav-icon { font-size: 20px; color: var(--muted); }
-.nav-label { font-size: 11px; color: var(--muted); }
-.fab { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; color: #fff; font-size: 26px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 14px rgba(29,95,168,0.4); transition: background 0.15s, transform 0.15s; flex-shrink: 0; }
-.fab:hover { background: var(--accent-dark); transform: scale(1.05); }
+    /* NAV */
+    .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; height: var(--nav-h); background: var(--surface); border-top: 1px solid var(--border); display: flex; align-items: center; z-index: 30; }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; cursor: pointer; padding: 6px 0; flex: 1; }
+    .nav-item.active .nav-icon { color: var(--accent); }
+    .nav-item.active .nav-label { color: var(--accent); font-weight: 600; }
+    .nav-icon { font-size: 20px; color: var(--muted); }
+    .nav-label { font-size: 11px; color: var(--muted); }
+    .fab { width: 52px; height: 52px; border-radius: 50%; background: var(--accent); border: none; color: #fff; font-size: 26px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 14px rgba(29,95,168,0.4); transition: background 0.15s, transform 0.15s; flex-shrink: 0; }
+    .fab:hover { background: var(--accent-dark); transform: scale(1.05); }
 
-/* MAIN */
-.main { max-width: 640px; margin: 0 auto; padding: 1.25rem 1rem 1rem; }
+    /* MAIN */
+    .main { max-width: 640px; margin: 0 auto; padding: 1.25rem 1rem 1rem; }
 
-/* SEARCH + FILTER */
-.search-wrap { position: relative; margin-bottom: 10px; }
-.search-wrap input { width: 100%; height: 40px; border: 0.5px solid var(--border-strong); border-radius: var(--radius); padding: 0 12px 0 36px; font-family: "DM Sans", sans-serif; font-size: 14px; background: var(--surface); outline: none; color: var(--text); }
-.search-wrap input:focus { border-color: var(--accent); }
-.search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 15px; color: var(--muted); pointer-events: none; }
+    /* SEARCH + FILTER */
+    .search-wrap { position: relative; margin-bottom: 10px; }
+    .search-wrap input { width: 100%; height: 40px; border: 0.5px solid var(--border-strong); border-radius: var(--radius); padding: 0 12px 0 36px; font-family: "DM Sans", sans-serif; font-size: 14px; background: var(--surface); outline: none; color: var(--text); }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 15px; color: var(--muted); pointer-events: none; }
 
-/* RECORD CARD */
-.record-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); margin-bottom: 8px; overflow: hidden; }
-.record-card.closed { opacity: 0.8; }
-.record-header { display: flex; align-items: center; gap: 10px; padding: 11px 13px; cursor: pointer; position: relative; }
-.record-header:hover { background: #fafaf8; }
-.rec-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--amber-light); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-.rec-main { flex: 1; min-width: 0; }
-.rec-title { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.rec-sub { font-size: 12px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.rec-id { font-size: 11px; color: #bbb; margin-top: 1px; }
-.dl-btn { width: 32px; height: 32px; border-radius: 8px; border: 0.5px solid var(--border-strong); background: var(--surface2); color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; padding: 0; }
-.dl-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
-.dl-btn svg { width: 14px; height: 14px; }
+    /* RECORD CARD */
+    .record-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); margin-bottom: 8px; overflow: hidden; }
+    .record-card.closed { opacity: 0.8; }
+    .record-header { display: flex; align-items: center; gap: 10px; padding: 11px 13px; cursor: pointer; position: relative; }
+    .record-header:hover { background: #fafaf8; }
+    .rec-icon { width: 38px; height: 38px; border-radius: 9px; background: var(--amber-light); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .rec-main { flex: 1; min-width: 0; }
+    .rec-title { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rec-sub { font-size: 12px; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .rec-id { font-size: 11px; color: #bbb; margin-top: 1px; }
+    .dl-btn { width: 32px; height: 32px; border-radius: 8px; border: 0.5px solid var(--border-strong); background: var(--surface2); color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; padding: 0; }
+    .dl-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .dl-btn svg { width: 14px; height: 14px; }
 
-/* DETAIL */
-.record-detail { border-top: 0.5px solid var(--border); display: none; }
-.record-detail.open { display: block; }
-.stage { padding: 12px 14px; border-bottom: 0.5px solid var(--border); }
-.stage:last-child { border-bottom: none; }
-.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
-.df-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
-.df-val { font-size: 13px; font-weight: 500; color: var(--text); }
-.record-photo { width: 100%; border-radius: 8px; max-height: 260px; object-fit: cover; display: block; }
-.detail-actions { display: flex; gap: 8px; padding: 10px 14px; background: var(--surface2); border-top: 0.5px solid var(--border); }
-.action-btn { height: 34px; padding: 0 14px; border-radius: var(--radius); border: 0.5px solid var(--border-strong); background: none; font-family: "DM Sans", sans-serif; font-size: 13px; cursor: pointer; transition: background 0.15s; }
-.action-btn.edit { color: var(--accent); border-color: rgba(29,95,168,0.3); flex: 1; }
-.action-btn.edit:hover { background: var(--accent-light); }
-.action-btn.del { width: 36px; padding: 0; display: flex; align-items: center; justify-content: center; color: var(--red); border-color: rgba(192,57,43,0.3); }
-.action-btn.del:hover { background: var(--red-light); }
+    /* DETAIL */
+    .record-detail { border-top: 0.5px solid var(--border); display: none; }
+    .record-detail.open { display: block; }
+    .stage { padding: 12px 14px; border-bottom: 0.5px solid var(--border); }
+    .stage:last-child { border-bottom: none; }
+    .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+    .df-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+    .df-val { font-size: 13px; font-weight: 500; color: var(--text); }
+    .record-photo { width: 100%; border-radius: 8px; max-height: 260px; object-fit: cover; display: block; }
+    .detail-actions { display: flex; gap: 8px; padding: 10px 14px; background: var(--surface2); border-top: 0.5px solid var(--border); }
+    .action-btn { height: 34px; padding: 0 14px; border-radius: var(--radius); border: 0.5px solid var(--border-strong); background: none; font-family: "DM Sans", sans-serif; font-size: 13px; cursor: pointer; transition: background 0.15s; }
+    .action-btn.edit { color: var(--accent); border-color: rgba(29,95,168,0.3); flex: 1; }
+    .action-btn.edit:hover { background: var(--accent-light); }
+    .action-btn.del { width: 36px; padding: 0; display: flex; align-items: center; justify-content: center; color: var(--red); border-color: rgba(192,57,43,0.3); }
+    .action-btn.del:hover { background: var(--red-light); }
 
-/* EDIT MODE */
-.edit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; padding: 14px; }
-.edit-group { display: flex; flex-direction: column; gap: 3px; }
-.edit-group.full { grid-column: 1/-1; }
-.edit-label { font-size: 11px; color: var(--muted); font-weight: 500; }
-.edit-field { height: 36px; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 0 9px; font-family: "DM Sans", sans-serif; font-size: 13px; color: var(--text); background: var(--surface2); outline: none; width: 100%; }
-.edit-field:focus { border-color: var(--accent); background: #fff; }
-.edit-field.ta { height: 64px; padding: 8px 9px; resize: vertical; }
-.edit-footer { display: flex; gap: 8px; padding: 0 14px 14px; }
-.edit-save { flex: 1; height: 38px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; }
-.edit-cancel { height: 38px; padding: 0 14px; background: none; border: 0.5px solid var(--border-strong); border-radius: var(--radius); font-family: "DM Sans", sans-serif; font-size: 13px; color: var(--muted); cursor: pointer; }
+    /* EDIT MODE */
+    .edit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; padding: 14px; }
+    .edit-group { display: flex; flex-direction: column; gap: 3px; }
+    .edit-group.full { grid-column: 1/-1; }
+    .edit-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+    .edit-field { height: 36px; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 0 9px; font-family: "DM Sans", sans-serif; font-size: 13px; color: var(--text); background: var(--surface2); outline: none; width: 100%; }
+    .edit-field:focus { border-color: var(--accent); background: #fff; }
+    .edit-field.ta { height: 64px; padding: 8px 9px; resize: vertical; }
+    .edit-footer { display: flex; gap: 8px; padding: 0 14px 14px; }
+    .edit-save { flex: 1; height: 38px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; }
+    .edit-cancel { height: 38px; padding: 0 14px; background: none; border: 0.5px solid var(--border-strong); border-radius: var(--radius); font-family: "DM Sans", sans-serif; font-size: 13px; color: var(--muted); cursor: pointer; }
 
-/* FORM */
-.form-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 1.25rem; margin-bottom: 1rem; }
-.form-section { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 12px; margin-top: 16px; }
-.form-section:first-child { margin-top: 0; }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.form-group { display: flex; flex-direction: column; gap: 4px; }
-.form-group.full { grid-column: 1/-1; }
-label { font-size: 12px; color: var(--muted); font-weight: 500; }
-input, select, textarea { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 0 10px; font-family: "DM Sans", sans-serif; font-size: 14px; color: var(--text); background: var(--surface2); outline: none; transition: border-color 0.15s; height: 42px; }
-input[type="date"], input[type="time"] { -webkit-appearance: none; appearance: none; text-align: left; }
-input:focus, select:focus, textarea:focus { border-color: var(--accent); background: #fff; }
-input::placeholder, textarea::placeholder { color: var(--muted); }
-textarea { height: 80px; padding: 10px; resize: vertical; }
-.submit-btn { width: 100%; height: 46px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; margin-top: .75rem; transition: background 0.15s; }
-.submit-btn:hover { background: var(--accent-dark); }
-.submit-btn:disabled { background: var(--muted); cursor: not-allowed; }
+    /* FORM */
+    .form-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 1.25rem; margin-bottom: 1rem; }
+    .form-section { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 12px; margin-top: 16px; }
+    .form-section:first-child { margin-top: 0; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-group { display: flex; flex-direction: column; gap: 4px; }
+    .form-group.full { grid-column: 1/-1; }
+    label { font-size: 12px; color: var(--muted); font-weight: 500; }
+    input, select, textarea { width: 100%; border: 1px solid var(--border-strong); border-radius: var(--radius); padding: 0 10px; font-family: "DM Sans", sans-serif; font-size: 14px; color: var(--text); background: var(--surface2); outline: none; transition: border-color 0.15s; height: 42px; }
+    input[type="date"], input[type="time"] { -webkit-appearance: none; appearance: none; text-align: left; }
+    input:focus, select:focus, textarea:focus { border-color: var(--accent); background: #fff; }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    textarea { height: 80px; padding: 10px; resize: vertical; }
+    .submit-btn { width: 100%; height: 46px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); font-family: "DM Sans", sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; margin-top: .75rem; transition: background 0.15s; }
+    .submit-btn:hover { background: var(--accent-dark); }
+    .submit-btn:disabled { background: var(--muted); cursor: not-allowed; }
 
-/* PHOTO UPLOAD */
-.photo-upload { border: 1.5px dashed var(--border-strong); border-radius: var(--radius); padding: 16px; text-align: center; cursor: pointer; transition: border-color 0.15s; }
-.photo-upload:hover { border-color: var(--accent); }
-.photo-upload input { display: none; }
-.photo-preview { width: 100%; border-radius: var(--radius); max-height: 200px; object-fit: cover; display: none; margin-top: 8px; }
+    /* PHOTO UPLOAD */
+    .photo-upload { border: 1.5px dashed var(--border-strong); border-radius: var(--radius); padding: 16px; text-align: center; cursor: pointer; transition: border-color 0.15s; }
+    .photo-upload:hover { border-color: var(--accent); }
+    .photo-upload input { display: none; }
+    .photo-preview { width: 100%; border-radius: var(--radius); max-height: 200px; object-fit: cover; display: none; margin-top: 8px; }
 
-/* STATS */
-.stat-section-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin: 1.25rem 0 8px; }
-.kpi-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; margin-bottom: 4px; }
-.kpi-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 14px; text-align: center; }
-.kpi-num { font-size: 32px; font-weight: 600; color: var(--text); line-height: 1; }
-.kpi-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
-.chart-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 14px; margin-bottom: 8px; }
-.breakdown-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-.breakdown-row:last-child { margin-bottom: 0; }
-.breakdown-label { font-size: 13px; color: var(--text); min-width: 90px; }
-.breakdown-bar-wrap { flex: 1; background: var(--surface2); border-radius: 4px; height: 8px; overflow: hidden; }
-.breakdown-bar { height: 100%; border-radius: 4px; transition: width 0.4s; }
-.breakdown-count { font-size: 13px; font-weight: 500; color: var(--text); min-width: 48px; text-align: right; }
+    /* STATS */
+    .stat-section-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin: 1.25rem 0 8px; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; margin-bottom: 4px; }
+    .kpi-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 14px; text-align: center; }
+    .kpi-num { font-size: 32px; font-weight: 600; color: var(--text); line-height: 1; }
+    .kpi-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .chart-card { background: var(--surface); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 14px; margin-bottom: 8px; }
+    .breakdown-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .breakdown-row:last-child { margin-bottom: 0; }
+    .breakdown-label { font-size: 13px; color: var(--text); min-width: 90px; }
+    .breakdown-bar-wrap { flex: 1; background: var(--surface2); border-radius: 4px; height: 8px; overflow: hidden; }
+    .breakdown-bar { height: 100%; border-radius: 4px; transition: width 0.4s; }
+    .breakdown-count { font-size: 13px; font-weight: 500; color: var(--text); min-width: 48px; text-align: right; }
 
-/* STATUS BADGES */
-.status-badge { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; flex-shrink: 0; white-space: nowrap; }
-.status-zistena  { background: var(--amber-light); color: var(--amber); }
-.status-nahlasena { background: var(--accent-light); color: var(--accent); }
-.status-odstranena { background: var(--green-light); color: var(--green); }
+    /* STATUS BADGES */
+    .status-badge { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; flex-shrink: 0; white-space: nowrap; }
+    .status-zistena  { background: var(--amber-light); color: var(--amber); }
+    .status-nahlasena { background: var(--accent-light); color: var(--accent); }
+    .status-odstranena { background: var(--green-light); color: var(--green); }
 
-/* EMPTY */
-.empty { text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: 14px; }
+    /* EMPTY */
+    .empty { text-align: center; padding: 3rem 1rem; color: var(--muted); font-size: 14px; }
 
-@media (max-width: 600px) {
-  .main { padding: 1rem .75rem; }
-  .form-grid, .detail-grid, .edit-grid { grid-template-columns: 1fr; }
-  .detail-grid { grid-template-columns: 1fr; }
-  .edit-grid { grid-template-columns: 1fr; }
-}
-```
-
+    @media (max-width: 600px) {
+      .main { padding: 1rem .75rem; }
+      .form-grid, .detail-grid, .edit-grid { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .edit-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -193,40 +189,37 @@ textarea { height: 80px; padding: 10px; resize: vertical; }
         </div>
       </div>
 
-```
-  <div class="form-section">Hliadka a miesto</div>
-  <div class="form-grid">
-    <div class="form-group">
-      <label>Hliadka</label>
-      <select id="f-shift">
-        <option value="">Vybrať</option>
-        <option>A</option><option>B</option><option>C</option><option>D</option>
-      </select>
+      <div class="form-section">Hliadka a miesto</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Hliadka</label>
+          <select id="f-shift">
+            <option value="">Vybrať</option>
+            <option>A</option><option>B</option><option>C</option><option>D</option>
+          </select>
+        </div>
+        <div class="form-group full" style="grid-column:unset">
+          <label>Adresa / miesto</label>
+          <input type="text" id="f-address" placeholder="Ulica, číslo, oblasť..." />
+        </div>
+      </div>
+
+      <div class="form-section">Opis závady</div>
+      <div class="form-group full">
+        <label>Popis</label>
+        <textarea id="f-desc" placeholder="Čo je poškodené, ako vyzerá závada..."></textarea>
+      </div>
+
+      <div class="form-section">Fotografia</div>
+      <div class="photo-upload" onclick="document.getElementById('f-photo').click()">
+        <div style="font-size:24px;margin-bottom:6px">📷</div>
+        <div style="font-size:13px;color:var(--muted)">Kliknite pre pridanie fotografie</div>
+        <input type="file" id="f-photo" accept="image/*" onchange="previewPhoto(this)" />
+      </div>
+      <img id="f-photo-preview" class="photo-preview" />
+
+      <button class="submit-btn" id="submit-btn" onclick="submitRecord()">Uložiť závadu</button>
     </div>
-    <div class="form-group full" style="grid-column:unset">
-      <label>Adresa / miesto</label>
-      <input type="text" id="f-address" placeholder="Ulica, číslo, oblasť..." />
-    </div>
-  </div>
-
-  <div class="form-section">Opis závady</div>
-  <div class="form-group full">
-    <label>Popis</label>
-    <textarea id="f-desc" placeholder="Čo je poškodené, ako vyzerá závada..."></textarea>
-  </div>
-
-  <div class="form-section">Fotografia</div>
-  <div class="photo-upload" onclick="document.getElementById('f-photo').click()">
-    <div style="font-size:24px;margin-bottom:6px">📷</div>
-    <div style="font-size:13px;color:var(--muted)">Kliknite pre pridanie fotografie</div>
-    <input type="file" id="f-photo" accept="image/*" onchange="previewPhoto(this)" />
-  </div>
-  <img id="f-photo-preview" class="photo-preview" />
-
-  <button class="submit-btn" id="submit-btn" onclick="submitRecord()">Uložiť závadu</button>
-</div>
-```
-
   </div>
 
   <div id="tab-stats" style="display:none">
@@ -336,247 +329,236 @@ textarea { height: 80px; padding: 10px; resize: vertical; }
           </div>
           <div class="edit-group"><span class="edit-label">Adresa / miesto</span><input class="edit-field" id="e-address" value="${r.address||''}"/></div>
           <div class="edit-group full"><span class="edit-label">Popis</span><textarea class="edit-field ta" id="e-desc">${r.description||''}</textarea></div>
+        </div>
+        <div class="edit-footer">
+          <button class="edit-save" onclick="saveEdit('${r.id}')">Uložiť zmeny</button>
+          <button class="edit-cancel" onclick="cancelEdit()">Zrušiť</button>
+        </div>` : `
+        ${r.photoUrl?`<div style="padding:12px 14px 0"><img src="${r.photoUrl}" class="record-photo" /></div>`:""}
+        <div class="stage">
+          <div class="detail-grid">
+            <div><div class="df-label">Dátum zistenia</div><div class="df-val">${r.date||"—"}</div></div>
+            <div><div class="df-label">Čas zistenia</div><div class="df-val">${r.time||"—"}</div></div>
+            <div><div class="df-label">Hliadka</div><div class="df-val">${r.shift||"—"}</div></div>
+            <div><div class="df-label">Adresa</div><div class="df-val">${r.address||"—"}</div></div>
+          </div>
+        </div>
+        ${r.description?`<div class="stage"><div class="df-label" style="margin-bottom:4px">Popis závady</div><div style="font-size:13px;line-height:1.6">${r.description}</div></div>`:""}
+        <div class="stage" style="background:var(--surface2)">
+          <div class="df-label" style="margin-bottom:6px">Stav závady</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            ${['zistena','nahlasena','odstranena'].map(s=>`
+              <button onclick="changeStatus('${r.id}','${s}')" style="height:30px;padding:0 12px;border-radius:20px;border:1px solid;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;${(r.status||'zistena')===s?'background:var(--accent);color:#fff;border-color:var(--accent)':'background:none;color:var(--muted);border-color:var(--border-strong)'}">${{zistena:'Zistená',nahlasena:'Nahlásená',odstranena:'Odstránená'}[s]}</button>
+            `).join('')}
+          </div>
+          ${r.status==='odstranena'&&r.removedDate?`<div style="font-size:12px;color:var(--green);margin-top:8px">✓ Odstránená: ${r.removedDate}</div>`:''}
+        </div>
+        <div class="detail-actions">
+          <button class="action-btn edit" onclick="startEdit('${r.id}')">Upraviť</button>
+          <button class="action-btn del" onclick="deleteRecord('${r.id}')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
+              <path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
+            </svg>
+          </button>
+        </div>`;
 
-```
-    </div>
-    <div class="edit-footer">
-      <button class="edit-save" onclick="saveEdit('${r.id}')">Uložiť zmeny</button>
-      <button class="edit-cancel" onclick="cancelEdit()">Zrušiť</button>
-    </div>` : `
-    ${r.photoUrl?`<div style="padding:12px 14px 0"><img src="${r.photoUrl}" class="record-photo" /></div>`:""}
-    <div class="stage">
-      <div class="detail-grid">
-        <div><div class="df-label">Dátum zistenia</div><div class="df-val">${r.date||"—"}</div></div>
-        <div><div class="df-label">Čas zistenia</div><div class="df-val">${r.time||"—"}</div></div>
-        <div><div class="df-label">Hliadka</div><div class="df-val">${r.shift||"—"}</div></div>
-        <div><div class="df-label">Adresa</div><div class="df-val">${r.address||"—"}</div></div>
-      </div>
-    </div>
-    ${r.description?`<div class="stage"><div class="df-label" style="margin-bottom:4px">Popis závady</div><div style="font-size:13px;line-height:1.6">${r.description}</div></div>`:""}
-    <div class="stage" style="background:var(--surface2)">
-      <div class="df-label" style="margin-bottom:6px">Stav závady</div>
-      <div style="display:flex;gap:6px;flex-wrap:wrap">
-        ${['zistena','nahlasena','odstranena'].map(s=>`
-          <button onclick="changeStatus('${r.id}','${s}')" style="height:30px;padding:0 12px;border-radius:20px;border:1px solid;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;${(r.status||'zistena')===s?'background:var(--accent);color:#fff;border-color:var(--accent)':'background:none;color:var(--muted);border-color:var(--border-strong)'}">${{zistena:'Zistená',nahlasena:'Nahlásená',odstranena:'Odstránená'}[s]}</button>
-        `).join('')}
-      </div>
-      ${r.status==='odstranena'&&r.removedDate?`<div style="font-size:12px;color:var(--green);margin-top:8px">✓ Odstránená: ${r.removedDate}</div>`:''}
-    </div>
-    <div class="detail-actions">
-      <button class="action-btn edit" onclick="startEdit('${r.id}')">Upraviť</button>
-      <button class="action-btn del" onclick="deleteRecord('${r.id}')">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px">
-          <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/>
-          <path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/>
-        </svg>
-      </button>
-    </div>`;
+      return `
+      <div class="record-card">
+        <div class="record-header" onclick="toggleCard('${r.id}')">
+          <div class="rec-icon">⚠️</div>
+          <div class="rec-main">
+            <div class="rec-title">${r.address||"Bez adresy"}</div>
+            <div class="rec-sub">${r.date||""} ${r.time||""} · Hliadka ${r.shift||"—"}</div>
+            <div class="rec-id">ID: ${rid}</div>
+          </div>
+          <span class="status-badge status-${r.status||'zistena'}">${{zistena:'Zistená',nahlasena:'Nahlásená',odstranena:'Odstránená'}[r.status||'zistena']}</span>
+          <button class="dl-btn" onclick="event.stopPropagation();exportPDF('${r.id}')" title="Stiahnuť PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </button>
+        </div>
+        <div class="record-detail ${isOpen?"open":""}">
+          ${detailContent}
+        </div>
+      </div>`;
+    }).join("");
+  };
 
-  return `
-  <div class="record-card">
-    <div class="record-header" onclick="toggleCard('${r.id}')">
-      <div class="rec-icon">⚠️</div>
-      <div class="rec-main">
-        <div class="rec-title">${r.address||"Bez adresy"}</div>
-        <div class="rec-sub">${r.date||""} ${r.time||""} · Hliadka ${r.shift||"—"}</div>
-        <div class="rec-id">ID: ${rid}</div>
-      </div>
-      <span class="status-badge status-${r.status||'zistena'}">${{zistena:'Zistená',nahlasena:'Nahlásená',odstranena:'Odstránená'}[r.status||'zistena']}</span>
-      <button class="dl-btn" onclick="event.stopPropagation();exportPDF('${r.id}')" title="Stiahnuť PDF">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-      </button>
-    </div>
-    <div class="record-detail ${isOpen?"open":""}">
-      ${detailContent}
-    </div>
-  </div>`;
-}).join("");
-```
+  window.toggleCard = id => { openId = openId===id?null:id; editId = null; render(); };
+  window.startEdit  = id => { editId = id; openId = id; render(); };
+  window.cancelEdit = ()  => { editId = null; render(); };
 
-};
+  window.changeStatus = (id, status) => {
+    const data = { status };
+    if (status === 'odstranena') data.removedDate = new Date().toLocaleDateString('sk-SK');
+    else data.removedDate = null;
+    update(ref(db,"zavady/"+id), data);
+  };
 
-window.toggleCard = id => { openId = openId===id?null:id; editId = null; render(); };
-window.startEdit  = id => { editId = id; openId = id; render(); };
-window.cancelEdit = ()  => { editId = null; render(); };
+  window.saveEdit = id => {
+    const g = s => { const el=document.getElementById(s); return el?el.value.trim():""; };
+    update(ref(db,"zavady/"+id), {
+      date:g("e-date"), time:g("e-time"), shift:g("e-shift"),
+      address:g("e-address"), description:g("e-desc")
+    }).then(()=>{ editId=null; render(); });
+  };
 
-window.changeStatus = (id, status) => {
-const data = { status };
-if (status === ‘odstranena’) data.removedDate = new Date().toLocaleDateString(‘sk-SK’);
-else data.removedDate = null;
-update(ref(db,“zavady/”+id), data);
-};
+  window.deleteRecord = id => {
+    if (confirm("Vymazať túto závadu?")) remove(ref(db,"zavady/"+id));
+  };
 
-window.saveEdit = id => {
-const g = s => { const el=document.getElementById(s); return el?el.value.trim():””; };
-update(ref(db,“zavady/”+id), {
-date:g(“e-date”), time:g(“e-time”), shift:g(“e-shift”),
-address:g(“e-address”), description:g(“e-desc”)
-}).then(()=>{ editId=null; render(); });
-};
+  // ── SUBMIT ──
+  window.submitRecord = function() {
+    const date = document.getElementById("f-date").value;
+    const time = document.getElementById("f-time").value;
+    const shift = document.getElementById("f-shift").value;
+    const address = document.getElementById("f-address").value.trim();
+    const desc = document.getElementById("f-desc").value.trim();
+    if (!date||!address) { alert("Vyplňte aspoň dátum a miesto závady."); return; }
+    const btn = document.getElementById("submit-btn");
+    btn.disabled=true; btn.textContent="Ukladanie...";
+    const data = { date, time, shift, address, description:desc, status:'zistena', ts:Date.now() };
+    if (photoData) data.photoUrl = photoData;
+    push(dbRef, data).then(()=>{
+      btn.disabled=false; btn.textContent="Uložiť závadu";
+      document.getElementById("f-address").value="";
+      document.getElementById("f-desc").value="";
+      document.getElementById("f-shift").value="";
+      document.getElementById("f-photo-preview").style.display="none";
+      photoData=null;
+      const n=new Date();
+      document.getElementById("f-date").value=n.toISOString().split("T")[0];
+      document.getElementById("f-time").value=n.toTimeString().slice(0,5);
+      switchTab("zavady");
+    });
+  };
 
-window.deleteRecord = id => {
-if (confirm(“Vymazať túto závadu?”)) remove(ref(db,“zavady/”+id));
-};
+  // ── PHOTO ──
+  window.previewPhoto = function(input) {
+    const file = input.files[0]; if(!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const MAX = 800; let {width:w, height:h} = img;
+        if (w > MAX) { h = h*(MAX/w); w = MAX; }
+        if (h > MAX) { w = w*(MAX/h); h = MAX; }
+        canvas.width=w; canvas.height=h;
+        canvas.getContext("2d").drawImage(img,0,0,w,h);
+        photoData = canvas.toDataURL("image/jpeg",0.75);
+        const prev = document.getElementById("f-photo-preview");
+        prev.src=photoData; prev.style.display="block";
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  };
 
-// ── SUBMIT ──
-window.submitRecord = function() {
-const date = document.getElementById(“f-date”).value;
-const time = document.getElementById(“f-time”).value;
-const shift = document.getElementById(“f-shift”).value;
-const address = document.getElementById(“f-address”).value.trim();
-const desc = document.getElementById(“f-desc”).value.trim();
-if (!date||!address) { alert(“Vyplňte aspoň dátum a miesto závady.”); return; }
-const btn = document.getElementById(“submit-btn”);
-btn.disabled=true; btn.textContent=“Ukladanie…”;
-const data = { date, time, shift, address, description:desc, status:‘zistena’, ts:Date.now() };
-if (photoData) data.photoUrl = photoData;
-push(dbRef, data).then(()=>{
-btn.disabled=false; btn.textContent=“Uložiť závadu”;
-document.getElementById(“f-address”).value=””;
-document.getElementById(“f-desc”).value=””;
-document.getElementById(“f-shift”).value=””;
-document.getElementById(“f-photo-preview”).style.display=“none”;
-photoData=null;
-const n=new Date();
-document.getElementById(“f-date”).value=n.toISOString().split(“T”)[0];
-document.getElementById(“f-time”).value=n.toTimeString().slice(0,5);
-switchTab(“zavady”);
-});
-};
+  // ── STATS ──
+  function renderStats() {
+    const entries = Object.values(allRecords);
+    const now2 = new Date();
+    document.getElementById("k-total").textContent = entries.length;
+    document.getElementById("k-month").textContent = entries.filter(r=>{
+      const d=new Date(r.ts||0); return d.getMonth()===now2.getMonth()&&d.getFullYear()===now2.getFullYear();
+    }).length;
 
-// ── PHOTO ──
-window.previewPhoto = function(input) {
-const file = input.files[0]; if(!file) return;
-const reader = new FileReader();
-reader.onload = e => {
-const img = new Image();
-img.onload = () => {
-const canvas = document.createElement(“canvas”);
-const MAX = 800; let {width:w, height:h} = img;
-if (w > MAX) { h = h*(MAX/w); w = MAX; }
-if (h > MAX) { w = w*(MAX/h); h = MAX; }
-canvas.width=w; canvas.height=h;
-canvas.getContext(“2d”).drawImage(img,0,0,w,h);
-photoData = canvas.toDataURL(“image/jpeg”,0.75);
-const prev = document.getElementById(“f-photo-preview”);
-prev.src=photoData; prev.style.display=“block”;
-};
-img.src = e.target.result;
-};
-reader.readAsDataURL(file);
-};
+    const shifts = ["A","B","C","D"];
+    const max = Math.max(...shifts.map(s=>entries.filter(r=>r.shift===s).length), 1);
+    const total = entries.length || 1;
+    document.getElementById("shift-breakdown").innerHTML = shifts.map((s,i)=>{
+      const count = entries.filter(r=>r.shift===s).length;
+      const pct = Math.round(count/total*100);
+      const colors = ["#1d5fa8","#2d6a4f","#b45309","#c0392b"];
+      return `<div class="breakdown-row">
+        <div class="breakdown-label">Hliadka ${s}</div>
+        <div class="breakdown-bar-wrap"><div class="breakdown-bar" style="width:${Math.round(count/max*100)}%;background:${colors[i]}"></div></div>
+        <div class="breakdown-count">${count} <span style="font-size:11px;color:var(--muted);font-weight:400">${pct}%</span></div>
+      </div>`;
+    }).join("");
+  }
 
-// ── STATS ──
-function renderStats() {
-const entries = Object.values(allRecords);
-const now2 = new Date();
-document.getElementById(“k-total”).textContent = entries.length;
-document.getElementById(“k-month”).textContent = entries.filter(r=>{
-const d=new Date(r.ts||0); return d.getMonth()===now2.getMonth()&&d.getFullYear()===now2.getFullYear();
-}).length;
+  // ── PDF ──
+  window.exportPDF = function(id) {
+    const r = allRecords[id]; if(!r) return;
+    const {jsPDF} = window.jspdf;
+    const doc = new jsPDF({orientation:"portrait",unit:"mm",format:"a4"});
+    addFont(doc);
+    const W=210, M=20, CW=W-M*2;
+    const rid = id.slice(-6).toUpperCase();
 
-```
-const shifts = ["A","B","C","D"];
-const max = Math.max(...shifts.map(s=>entries.filter(r=>r.shift===s).length), 1);
-const total = entries.length || 1;
-document.getElementById("shift-breakdown").innerHTML = shifts.map((s,i)=>{
-  const count = entries.filter(r=>r.shift===s).length;
-  const pct = Math.round(count/total*100);
-  const colors = ["#1d5fa8","#2d6a4f","#b45309","#c0392b"];
-  return `<div class="breakdown-row">
-    <div class="breakdown-label">Hliadka ${s}</div>
-    <div class="breakdown-bar-wrap"><div class="breakdown-bar" style="width:${Math.round(count/max*100)}%;background:${colors[i]}"></div></div>
-    <div class="breakdown-count">${count} <span style="font-size:11px;color:var(--muted);font-weight:400">${pct}%</span></div>
-  </div>`;
-}).join("");
-```
+    doc.setFontSize(16); doc.setFont("Lato","bold"); doc.setTextColor(26,24,20);
+    doc.text("Záznam o závade v meste", W/2, 18, {align:"center"});
+    doc.setFontSize(9); doc.setFont("Lato","normal"); doc.setTextColor(120,116,106);
+    doc.text("ID: "+rid, M, 27);
+    doc.text(new Date().toLocaleDateString("sk-SK"), W-M, 27, {align:"right"});
+    doc.setDrawColor(200,200,200); doc.setLineWidth(0.3);
+    doc.line(M, 31, W-M, 31);
 
-}
-
-// ── PDF ──
-window.exportPDF = function(id) {
-const r = allRecords[id]; if(!r) return;
-const {jsPDF} = window.jspdf;
-const doc = new jsPDF({orientation:“portrait”,unit:“mm”,format:“a4”});
-addFont(doc);
-const W=210, M=20, CW=W-M*2;
-const rid = id.slice(-6).toUpperCase();
-
-```
-doc.setFontSize(16); doc.setFont("Lato","bold"); doc.setTextColor(26,24,20);
-doc.text("Záznam o závade v meste", W/2, 18, {align:"center"});
-doc.setFontSize(9); doc.setFont("Lato","normal"); doc.setTextColor(120,116,106);
-doc.text("ID: "+rid, M, 27);
-doc.text(new Date().toLocaleDateString("sk-SK"), W-M, 27, {align:"right"});
-doc.setDrawColor(200,200,200); doc.setLineWidth(0.3);
-doc.line(M, 31, W-M, 31);
-
-let y = 38;
-function row(label, val) {
-  if (!val) return;
-  doc.setTextColor(120,116,106); doc.setFontSize(8); doc.setFont("Lato","normal");
-  doc.text(label, M, y);
-  doc.setTextColor(26,24,20); doc.setFontSize(10);
-  const lines = doc.splitTextToSize(String(val), CW);
-  doc.text(lines, M, y+5); y += lines.length*5+8;
-}
-function twoCol(l1,v1,l2,v2) {
-  const half=CW/2-4; let lines=1;
-  if(v1){doc.setTextColor(120,116,106);doc.setFontSize(8);doc.setFont("Lato","normal");doc.text(l1,M,y);doc.setTextColor(26,24,20);doc.setFontSize(10);const ll=doc.splitTextToSize(String(v1),half);doc.text(ll,M,y+5);lines=Math.max(lines,ll.length);}
-  if(v2){doc.setTextColor(120,116,106);doc.setFontSize(8);doc.setFont("Lato","normal");doc.text(l2,M+CW/2,y);doc.setTextColor(26,24,20);doc.setFontSize(10);const rl=doc.splitTextToSize(String(v2),half);doc.text(rl,M+CW/2,y+5);lines=Math.max(lines,rl.length);}
-  y += lines*5+8;
-}
-function sep(title) {
-  y+=4; doc.setDrawColor(200,200,200); doc.setLineWidth(0.2);
-  doc.line(M, y, W-M, y); y+=5;
-  doc.setTextColor(120,116,106); doc.setFontSize(8); doc.setFont("Lato","bold");
-  doc.text(title, M, y); y+=6;
-}
-
-sep("Dátum a čas");
-twoCol("Dátum zistenia", r.date, "Čas zistenia", r.time);
-sep("Hliadka a miesto");
-twoCol("Hliadka", r.shift, "Adresa / miesto", r.address);
-if(r.description) { sep("Popis závady"); row("", r.description); }
-
-// Photo
-if(r.photoUrl) {
-  try {
-    const imgData = r.photoUrl;
-    const remaining = 287 - y - 10;
-    if (remaining > 30) {
-      sep("Fotografia");
-      const imgH = Math.min(remaining, 80);
-      doc.addImage(imgData, "JPEG", M, y, CW, imgH);
-      y += imgH + 6;
+    let y = 38;
+    function row(label, val) {
+      if (!val) return;
+      doc.setTextColor(120,116,106); doc.setFontSize(8); doc.setFont("Lato","normal");
+      doc.text(label, M, y);
+      doc.setTextColor(26,24,20); doc.setFontSize(10);
+      const lines = doc.splitTextToSize(String(val), CW);
+      doc.text(lines, M, y+5); y += lines.length*5+8;
     }
-  } catch(e) {}
-}
+    function twoCol(l1,v1,l2,v2) {
+      const half=CW/2-4; let lines=1;
+      if(v1){doc.setTextColor(120,116,106);doc.setFontSize(8);doc.setFont("Lato","normal");doc.text(l1,M,y);doc.setTextColor(26,24,20);doc.setFontSize(10);const ll=doc.splitTextToSize(String(v1),half);doc.text(ll,M,y+5);lines=Math.max(lines,ll.length);}
+      if(v2){doc.setTextColor(120,116,106);doc.setFontSize(8);doc.setFont("Lato","normal");doc.text(l2,M+CW/2,y);doc.setTextColor(26,24,20);doc.setFontSize(10);const rl=doc.splitTextToSize(String(v2),half);doc.text(rl,M+CW/2,y+5);lines=Math.max(lines,rl.length);}
+      y += lines*5+8;
+    }
+    function sep(title) {
+      y+=4; doc.setDrawColor(200,200,200); doc.setLineWidth(0.2);
+      doc.line(M, y, W-M, y); y+=5;
+      doc.setTextColor(120,116,106); doc.setFontSize(8); doc.setFont("Lato","bold");
+      doc.text(title, M, y); y+=6;
+    }
 
-doc.setFillColor(240,242,245); doc.rect(0,287,W,10,"F");
-doc.setTextColor(120,116,106); doc.setFontSize(8);
-doc.text("Závady v meste · ID: "+rid, M, 293);
-doc.text("Strana 1 z 1", W-M, 293, {align:"right"});
-doc.save("zavada-"+rid+".pdf");
-```
+    sep("Dátum a čas");
+    twoCol("Dátum zistenia", r.date, "Čas zistenia", r.time);
+    sep("Hliadka a miesto");
+    twoCol("Hliadka", r.shift, "Adresa / miesto", r.address);
+    if(r.description) { sep("Popis závady"); row("", r.description); }
 
-};
+    // Photo
+    if(r.photoUrl) {
+      try {
+        const imgData = r.photoUrl;
+        const remaining = 287 - y - 10;
+        if (remaining > 30) {
+          sep("Fotografia");
+          const imgH = Math.min(remaining, 80);
+          doc.addImage(imgData, "JPEG", M, y, CW, imgH);
+          y += imgH + 6;
+        }
+      } catch(e) {}
+    }
 
-// ── TABS ──
-window.switchTab = function(tab) {
-[“zavady”,“nova”,“stats”].forEach(t => {
-document.getElementById(“tab-”+t).style.display = t===tab ? “” : “none”;
-});
-document.querySelectorAll(”.nav-item”).forEach(n=>n.classList.remove(“active”));
-if (tab===“zavady”) document.getElementById(“nav-zavady”).classList.add(“active”);
-if (tab===“stats”)  document.getElementById(“nav-stats”).classList.add(“active”);
-if (tab===“stats”)  renderStats();
-};
+    doc.setFillColor(240,242,245); doc.rect(0,287,W,10,"F");
+    doc.setTextColor(120,116,106); doc.setFontSize(8);
+    doc.text("Závady v meste · ID: "+rid, M, 293);
+    doc.text("Strana 1 z 1", W-M, 293, {align:"right"});
+    doc.save("zavada-"+rid+".pdf");
+  };
+
+  // ── TABS ──
+  window.switchTab = function(tab) {
+    ["zavady","nova","stats"].forEach(t => {
+      document.getElementById("tab-"+t).style.display = t===tab ? "" : "none";
+    });
+    document.querySelectorAll(".nav-item").forEach(n=>n.classList.remove("active"));
+    if (tab==="zavady") document.getElementById("nav-zavady").classList.add("active");
+    if (tab==="stats")  document.getElementById("nav-stats").classList.add("active");
+    if (tab==="stats")  renderStats();
+  };
 </script>
-
 </body>
 </html>

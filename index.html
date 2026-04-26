@@ -481,20 +481,24 @@
   function renderStats() {
     const allE = Object.values(allRecords);
 
-    // Populate years dropdown
+    // Populate years dropdown - preserve current selection
     const ySel = document.getElementById("stat-year");
+    const mSel = document.getElementById("stat-month");
+    const prevYear  = ySel.value;
+    const prevMonth = mSel.value;
+
     const years = [...new Set(allE.map(r=>(r.date||"").slice(0,4)).filter(Boolean))].sort().reverse();
-    const curYear = ySel.value;
     while (ySel.options.length > 1) ySel.remove(1);
     years.forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y;ySel.appendChild(o);});
-    if (curYear) ySel.value = curYear;
+    ySel.value = prevYear;
+    mSel.value = prevMonth;
 
     const selYear  = ySel.value||"";
-    const selMonth = document.getElementById("stat-month").value||"";
+    const selMonth = mSel.value||"";
 
     // Filter
     let entries = allE;
-    if (selYear)  entries = entries.filter(r=>(r.date||"").startsWith(selYear));
+    if (selYear)  entries = entries.filter(r=>(r.date||"").slice(0,4)===selYear);
     if (selMonth) entries = entries.filter(r=>(r.date||"").slice(5,7)===selMonth);
 
     const total = entries.length;

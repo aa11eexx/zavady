@@ -133,7 +133,6 @@
     /* STATUS BADGES */
     .status-badge { font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 20px; flex-shrink: 0; white-space: nowrap; }
     .status-zistena  { background: var(--amber-light); color: var(--amber); }
-    .status-nahlasena { background: var(--accent-light); color: var(--accent); }
     .status-odstranena { background: var(--green-light); color: var(--green); }
 
     /* EMPTY */
@@ -223,10 +222,25 @@
   </div>
 
   <div id="tab-stats" style="display:none">
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <select id="stat-year" onchange="renderStats()" style="flex:1;height:36px;border:.5px solid var(--border-strong);border-radius:var(--radius);padding:0 8px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--surface);outline:none">
+        <option value="">Všetky roky</option>
+      </select>
+      <select id="stat-month" onchange="renderStats()" style="flex:1;height:36px;border:.5px solid var(--border-strong);border-radius:var(--radius);padding:0 8px;font-family:'DM Sans',sans-serif;font-size:13px;background:var(--surface);outline:none">
+        <option value="">Všetky mesiace</option>
+        <option value="01">Január</option><option value="02">Február</option>
+        <option value="03">Marec</option><option value="04">Apríl</option>
+        <option value="05">Máj</option><option value="06">Jún</option>
+        <option value="07">Júl</option><option value="08">August</option>
+        <option value="09">September</option><option value="10">Október</option>
+        <option value="11">November</option><option value="12">December</option>
+      </select>
+    </div>
     <div class="stat-section-title">Celkový prehľad</div>
     <div class="kpi-grid">
       <div class="kpi-card"><div class="kpi-num" id="k-total">0</div><div class="kpi-label">Celkový počet</div></div>
-      <div class="kpi-card"><div class="kpi-num" id="k-month">0</div><div class="kpi-label">Tento mesiac</div></div>
+      <div class="kpi-card"><div class="kpi-num" id="k-zistene" style="color:var(--amber)">0</div><div class="kpi-label">Zistené</div></div>
+      <div class="kpi-card"><div class="kpi-num" id="k-odstranene" style="color:var(--green)">0</div><div class="kpi-label">Odstránené</div></div>
     </div>
     <div class="stat-section-title">Podľa hliadky</div>
     <div class="chart-card" id="shift-breakdown"></div>
@@ -347,8 +361,8 @@
         <div class="stage" style="background:var(--surface2)">
           <div class="df-label" style="margin-bottom:6px">Stav závady</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap">
-            ${['zistena','nahlasena','odstranena'].map(s=>`
-              <button onclick="changeStatus('${r.id}','${s}')" style="height:30px;padding:0 12px;border-radius:20px;border:1px solid;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;${(r.status||'zistena')===s?'background:var(--accent);color:#fff;border-color:var(--accent)':'background:none;color:var(--muted);border-color:var(--border-strong)'}">${{zistena:'Zistená',nahlasena:'Nahlásená',odstranena:'Odstránená'}[s]}</button>
+            ${['zistena','odstranena'].map(s=>`
+              <button onclick="changeStatus('${r.id}','${s}')" style="height:30px;padding:0 12px;border-radius:20px;border:1px solid;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;${(r.status||'zistena')===s?'background:var(--accent);color:#fff;border-color:var(--accent)':'background:none;color:var(--muted);border-color:var(--border-strong)'}">${{zistena:'Zistená',odstranena:'Odstránená'}[s]}</button>
             `).join('')}
           </div>
           ${r.status==='odstranena'&&r.removedDate?`<div style="font-size:12px;color:var(--green);margin-top:8px">✓ Odstránená: ${r.removedDate}</div>`:''}
@@ -418,7 +432,12 @@
     const shift = document.getElementById("f-shift").value;
     const address = document.getElementById("f-address").value.trim();
     const desc = document.getElementById("f-desc").value.trim();
-    if (!date||!address) { alert("Vyplňte aspoň dátum a miesto závady."); return; }
+    const time2 = document.getElementById("f-time").value;
+    if (!date)    { alert("Vyplňte dátum závady."); return; }
+    if (!time2)   { alert("Vyplňte čas závady."); return; }
+    if (!shift)   { alert("Vyplňte hliadku."); return; }
+    if (!address) { alert("Vyplňte miesto závady."); return; }
+    if (!desc)    { alert("Vyplňte popis závady."); return; }
     const btn = document.getElementById("submit-btn");
     btn.disabled=true; btn.textContent="Ukladanie...";
     const data = { date, time, shift, address, description:desc, status:'zistena', ts:Date.now() };
@@ -461,20 +480,32 @@
 
   // ── STATS ──
   function renderStats() {
-    const entries = Object.values(allRecords);
-    const now2 = new Date();
-    document.getElementById("k-total").textContent = entries.length;
-    document.getElementById("k-month").textContent = entries.filter(r=>{
-      const d=new Date(r.ts||0); return d.getMonth()===now2.getMonth()&&d.getFullYear()===now2.getFullYear();
-    }).length;
+    const selYear  = document.getElementById("stat-year")?.value||"";
+    const selMonth = document.getElementById("stat-month")?.value||"";
+
+    // Populate years
+    const ySel = document.getElementById("stat-year");
+    const allE = Object.values(allRecords);
+    const years = [...new Set(allE.map(r=>(r.date||"").slice(0,4)).filter(Boolean))].sort().reverse();
+    if (ySel && ySel.options.length===1) years.forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y;ySel.appendChild(o);});
+    if (selYear) ySel.value=selYear;
+
+    // Filter
+    let entries = allE;
+    if (selYear)  entries = entries.filter(r=>(r.date||"").startsWith(selYear));
+    if (selMonth) entries = entries.filter(r=>(r.date||"").slice(5,7)===selMonth);
+
+    const total = entries.length;
+    document.getElementById("k-total").textContent = total;
+    document.getElementById("k-zistene").textContent = entries.filter(r=>r.status==="zistena").length;
+    document.getElementById("k-odstranene").textContent = entries.filter(r=>r.status==="odstranena").length;
 
     const shifts = ["A","B","C","D"];
+    const colors = ["#1d5fa8","#2d6a4f","#b45309","#c0392b"];
     const max = Math.max(...shifts.map(s=>entries.filter(r=>r.shift===s).length), 1);
-    const total = entries.length || 1;
     document.getElementById("shift-breakdown").innerHTML = shifts.map((s,i)=>{
       const count = entries.filter(r=>r.shift===s).length;
-      const pct = Math.round(count/total*100);
-      const colors = ["#1d5fa8","#2d6a4f","#b45309","#c0392b"];
+      const pct = total ? Math.round(count/total*100) : 0;
       return `<div class="breakdown-row">
         <div class="breakdown-label">Hliadka ${s}</div>
         <div class="breakdown-bar-wrap"><div class="breakdown-bar" style="width:${Math.round(count/max*100)}%;background:${colors[i]}"></div></div>

@@ -149,13 +149,13 @@
 <body>
 
 <nav class="topbar">
-  <div class="topbar-left">
-    <a class="home-btn" href="https://aa11eexx.github.io" title="Dashboard">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    </a>
+  <a class="home-btn" href="https://aa11eexx.github.io" title="Dashboard">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+  </a>
+  <div class="topbar-left" style="position:absolute;left:50%;transform:translateX(-50%)">
     <div class="topbar-icon">🔧</div>
     <span class="topbar-title">Závady v meste</span>
   </div>
@@ -310,7 +310,7 @@
     allRecords = snap.val()||{};
     setStatus(true);
     render();
-    renderStats();
+    window.renderStats();
   }, () => setStatus(false));
 
   // ── RENDER LIST ──
@@ -325,10 +325,14 @@
       return;
     }
 
-    container.innerHTML = filtered.map(r => {
-      const rid    = r.id.slice(-6).toUpperCase();
-      const isOpen = openId === r.id;
-      const isEdit = editId === r.id;
+    const zistene    = filtered.filter(r=>r.status!=="odstranena");
+    const odstranene = filtered.filter(r=>r.status==="odstranena");
+
+    function renderCards(list) {
+      return list.map(r => {
+        const rid    = r.id.slice(-6).toUpperCase();
+        const isOpen = openId === r.id;
+        const isEdit = editId === r.id;
 
       const detailContent = isEdit ? `
         <div class="edit-grid">
@@ -398,7 +402,19 @@
           ${detailContent}
         </div>
       </div>`;
-    }).join("");
+    }); // end map
+    } // end renderCards
+
+    let html = "";
+    if (zistene.length) {
+      html += `<div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--amber);margin-bottom:6px">Zistené (${zistene.length})</div>`;
+      html += renderCards(zistene).join("");
+    }
+    if (odstranene.length) {
+      html += `<div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--green);margin-bottom:6px;margin-top:${zistene.length?"1rem":"0"}">Odstránené (${odstranene.length})</div>`;
+      html += renderCards(odstranene).join("");
+    }
+    container.innerHTML = html;
   };
 
   window.toggleCard = id => { openId = openId===id?null:id; editId = null; render(); };
@@ -593,7 +609,7 @@
     document.querySelectorAll(".nav-item").forEach(n=>n.classList.remove("active"));
     if (tab==="zavady") document.getElementById("nav-zavady").classList.add("active");
     if (tab==="stats")  document.getElementById("nav-stats").classList.add("active");
-    if (tab==="stats")  renderStats();
+    if (tab==="stats")  window.renderStats();
   };
 </script>
 </body>

@@ -239,7 +239,6 @@
     <div class="stat-section-title">Celkový prehľad</div>
     <div class="kpi-grid">
       <div class="kpi-card"><div class="kpi-num" id="k-total">0</div><div class="kpi-label">Celkový počet</div></div>
-      <div class="kpi-card"><div class="kpi-num" id="k-zistene" style="color:var(--amber)">0</div><div class="kpi-label">Zistené</div></div>
       <div class="kpi-card"><div class="kpi-num" id="k-odstranene" style="color:var(--green)">0</div><div class="kpi-label">Odstránené</div></div>
     </div>
     <div class="stat-section-title">Podľa hliadky</div>
@@ -480,15 +479,18 @@
 
   // ── STATS ──
   function renderStats() {
-    const selYear  = document.getElementById("stat-year")?.value||"";
-    const selMonth = document.getElementById("stat-month")?.value||"";
-
-    // Populate years
-    const ySel = document.getElementById("stat-year");
     const allE = Object.values(allRecords);
+
+    // Populate years dropdown
+    const ySel = document.getElementById("stat-year");
     const years = [...new Set(allE.map(r=>(r.date||"").slice(0,4)).filter(Boolean))].sort().reverse();
-    if (ySel && ySel.options.length===1) years.forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y;ySel.appendChild(o);});
-    if (selYear) ySel.value=selYear;
+    const curYear = ySel.value;
+    while (ySel.options.length > 1) ySel.remove(1);
+    years.forEach(y=>{const o=document.createElement("option");o.value=y;o.textContent=y;ySel.appendChild(o);});
+    if (curYear) ySel.value = curYear;
+
+    const selYear  = ySel.value||"";
+    const selMonth = document.getElementById("stat-month").value||"";
 
     // Filter
     let entries = allE;
@@ -497,7 +499,6 @@
 
     const total = entries.length;
     document.getElementById("k-total").textContent = total;
-    document.getElementById("k-zistene").textContent = entries.filter(r=>r.status==="zistena").length;
     document.getElementById("k-odstranene").textContent = entries.filter(r=>r.status==="odstranena").length;
 
     const shifts = ["A","B","C","D"];
